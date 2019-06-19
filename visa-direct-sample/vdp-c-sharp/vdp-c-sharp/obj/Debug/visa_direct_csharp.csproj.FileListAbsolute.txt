@@ -1,0 +1,9 @@
+E:\Workspace\playground\visa-direct-sample\vdp-c-sharp\vdp-c-sharp\bin\Debug\vdp-c-sharp.dll.config
+E:\Workspace\playground\visa-direct-sample\vdp-c-sharp\vdp-c-sharp\bin\Debug\vdp-c-sharp.dll
+E:\Workspace\playground\visa-direct-sample\vdp-c-sharp\vdp-c-sharp\bin\Debug\vdp-c-sharp.pdb
+E:\Workspace\playground\visa-direct-sample\vdp-c-sharp\vdp-c-sharp\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\Workspace\playground\visa-direct-sample\vdp-c-sharp\vdp-c-sharp\obj\Debug\visa_direct_csharp.csprojAssemblyReference.cache
+E:\Workspace\playground\visa-direct-sample\vdp-c-sharp\vdp-c-sharp\obj\Debug\visa_direct_csharp.csproj.CoreCompileInputs.cache
+E:\Workspace\playground\visa-direct-sample\vdp-c-sharp\vdp-c-sharp\obj\Debug\visa_direct_csharp.csproj.CopyComplete
+E:\Workspace\playground\visa-direct-sample\vdp-c-sharp\vdp-c-sharp\obj\Debug\vdp-c-sharp.dll
+E:\Workspace\playground\visa-direct-sample\vdp-c-sharp\vdp-c-sharp\obj\Debug\vdp-c-sharp.pdb
