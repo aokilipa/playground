@@ -50,25 +50,21 @@ class _MyHomePageState extends State<MyHomePage> {
     //_calculator(int.parse(myController.text.toString()))
   }
 
-
-
   @override
   void dispose() {
     super.dispose();
   }
 
   void _calculator(int deposit) {
-    setState(() {
-      int newDeposit = 0;
-      int totalAmount = 0;
-
-      for (var i = 1; i <= 52; i++) {
-        newDeposit += deposit;
-        totalAmount += newDeposit;
-        contrib.add(new Contribution(i, newDeposit, totalAmount));
-      }
-      totalControl.text = totalAmount.toString();
-    });
+    int newDeposit = 0;
+    int totalAmount = 0;
+    contrib.clear();
+    for (var i = 1; i <= 52; i++) {
+      newDeposit += deposit;
+      totalAmount += newDeposit;
+      contrib.add(new Contribution(i, newDeposit, totalAmount));
+    }
+    totalControl.text = totalAmount.toString();
   }
 
   @override
@@ -92,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   print("First text field: $text");
                   var deposit = int.parse(text);
                   _calculator(deposit);
-
+                  setState(() {});
                 },
               ),
             ),
@@ -117,44 +113,44 @@ class _MyHomePageState extends State<MyHomePage> {
     Widget resultSection = Container(
       padding: const EdgeInsets.all(16),
       child: ListView.builder(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemCount: contrib.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              height: 50,
-              color: Colors.amber,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Container(
-                    child: Column(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: contrib.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    height: 50,
+                    color: Colors.amber,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        Text('#Week'),
-                        Text(contrib[index].currentweek.toString())
+                        Container(
+                          child: Column(
+                            children: <Widget>[
+                              Text('#Week'),
+                              Text(contrib[index].currentweek.toString())
+                            ],
+                          ),
+                        ),
+                        Container(
+                          child: Column(
+                            children: <Widget>[
+                              Text('Deposit'),
+                              Text(contrib[index].deposit.toString())
+                            ],
+                          ),
+                        ),
+                        Container(
+                          child: Column(
+                            children: <Widget>[
+                              Text('Total'),
+                              Text(contrib[index].total.toString())
+                            ],
+                          ),
+                        ),
                       ],
                     ),
-                  ),
-                  Container(
-                    child: Column(
-                      children: <Widget>[
-                        Text('Deposit'),
-                        Text(contrib[index].deposit.toString())
-                      ],
-                    ),
-                  ),
-                  Container(
-                    child: Column(
-                      children: <Widget>[
-                        Text('Total'),
-                        Text(contrib[index].total.toString())
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            );
-          }),
+                  );
+                }),
     );
     return Scaffold(
       appBar: AppBar(
@@ -162,20 +158,25 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: ListView(
+      body: Container(
         //child: Column(
         //mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          topSection,
-          resultSection,
-          // Text(
-          //   'You have presses the button ' + '$_counter' +' time(s):',
-          // ),
-          // Text(
-          //   '$_counter',
-          //   style: Theme.of(context).textTheme.display1,
-          // ),
-        ],
+        child: ListView(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          // mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            topSection,
+            resultSection,
+            // Text(
+            //   'You have presses the button ' + '$_counter' +' time(s):',
+            // ),
+            // Text(
+            //   '$_counter',
+            //   style: Theme.of(context).textTheme.display1,
+            // ),
+          ],
+        ),
+
         //),
       ),
       // floatingActionButton: FloatingActionButton(
